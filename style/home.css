@@ -1,0 +1,81 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+
+.mainBg{
+    position: fixed;
+    width: 600px;
+    height: 1000px;
+}
+
+.content{
+    margin-left: 600px;
+    height: 100%;
+    width: min-content;
+    position: absolute;
+    display: flex;
+    align-items: center;
+}
+
+.signUp{
+    margin-left: 30px;
+    padding: 60px 30px;
+    border-radius: 20px;
+    box-shadow:   0 6px 10px 0 rgba(0, 0, 0, 0.14),
+                  0 1px 18px 0 rgba(0, 0, 0, 0.12),
+                  0 3px 5px -1px rgba(0, 0, 0, 0.4)
+}
+
+.get-data-input{
+   padding: 7px 10px;
+   border-radius: 10px;
+   width: 250px;
+   border:1px solid #4D5656 ;
+   margin: 8px;
+}
+
+.get-data-input::placeholder{
+    color: #4D5656;
+}
+
+.get-data-input:focus{
+   outline: none; 
+}
+
+
+.submit-button{
+    margin-top: 20px;
+    margin-left: 60%;
+    padding: 6px 30px;
+    border-radius: 30px;
+    border:1px solid white;
+    background-color: #F5B7B1;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.submit-button:hover{
+    background-color: #E74C3C;
+    border:1px solid #641E16;
+}
+
+h1{
+    margin-bottom: 30px;
+}
+
+h4{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+a{
+    color: #5DADE2;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.message{
+    color: #1ABC9C;
+}
