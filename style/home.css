@@ -25,7 +25,7 @@
     border-radius: 20px;
     box-shadow:   0 6px 10px 0 rgba(0, 0, 0, 0.14),
                   0 1px 18px 0 rgba(0, 0, 0, 0.12),
-                  0 3px 5px -1px rgba(0, 0, 0, 0.4)
+                  0 3px 5px -1px rgba(0, 0, 0, 0.4);
 }
 
 .get-data-input{
@@ -54,6 +54,7 @@
     background-color: #F5B7B1;
     cursor: pointer;
     font-weight: bold;
+    outline: none;
 }
 
 .submit-button:hover{
@@ -78,4 +79,10 @@ a{
 
 .message{
     color: #1ABC9C;
+}
+
+h5{
+    color:red;
+    margin-top: 15px;
+    font-size: large;
 }

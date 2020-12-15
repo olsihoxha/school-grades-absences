@@ -1,4 +1,5 @@
 <?php
+  include("./config/configuration.php");
   $showSuccessMessage=FALSE;
 ?>
 
@@ -13,6 +14,7 @@
 </head>
 <body>
     <img src="assets/mainbg.jpeg" alt="background-image" class="mainBg">
+    <div class="background"></div>
     <div class="content">
         <div class="signUp">
         <h1>{Sign Up}</h1>
@@ -31,6 +33,11 @@
             <input type="submit" value="Sign Up" class="submit-button">
         </form>
         <h4>Do you have an account? <a href="signin.php">Sign In</a></h4>
+        <?php
+            if($databaseError){ ?>
+            <h5 class="errortag">We have a database error. Please try again!</h5>
+                <?php } ?>
+            
         </div>
     </div>
 </body>
