@@ -4,11 +4,13 @@
      if( isset($_POST['email']) && isset($_POST['password']) ){
      $em=$_POST['email'];
      $pass=$_POST['password'];
-     $mysqli -> query("SELECT * FROM users WHERE useremail = '$em' AND userpassword = '$pass'");
-     if($mysqli -> affected_rows >0){
+     mysqli_query($con,"SELECT * FROM users WHERE useremail = '$em' AND userpassword = '$pass'");
+     if(mysqli_affected_rows($con) >0){
+        session_start();
+        $_SESSION['theteacher']=$em;
         header('Location: feed.php');
      }
-     $mysqli -> close();
+     mysqli_close($con);
     }
 
 ?>
