@@ -1,5 +1,9 @@
 <?php
+  session_start();
   include("./config/configuration.php");
+  if( isset($_SESSION['theteacher']) && isset($_SESSION['password'])){
+    header('Location: ./actions/checker.php');
+}
   $showSuccessMessage=FALSE;
 ?>
 

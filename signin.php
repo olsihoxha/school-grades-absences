@@ -1,16 +1,14 @@
 <?php
-     include("./config/configuration.php");
-
+      session_start();
+      if( isset($_SESSION['theteacher']) && isset($_SESSION['password'])){
+        header('Location: ./actions/checker.php');
+    }
      if( isset($_POST['email']) && isset($_POST['password']) ){
      $em=$_POST['email'];
      $pass=$_POST['password'];
-     mysqli_query($con,"SELECT * FROM users WHERE useremail = '$em' AND userpassword = '$pass'");
-     if(mysqli_affected_rows($con) >0){
-        session_start();
-        $_SESSION['theteacher']=$em;
-        header('Location: feed.php');
-     }
-     mysqli_close($con);
+    $_SESSION['theteacher']=$em;
+    $_SESSION['password']=$pass;
+    header('Location: ./actions/checker.php');
     }
 
 ?>

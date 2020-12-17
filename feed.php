@@ -1,22 +1,13 @@
 <?php
-    include('./config/configuration.php');
-    if(isset($_GET["classname"]) && isset($_GET["classsubject"]) && isset($_GET["classteacher"])){
-        $nameClass=$_GET["classname"];
-        $subjectClass=$_GET["classsubject"];
-        $teacherClass=$_GET["classteacher"];
-        
-        mysqli_query($con,"INSERT INTO classdata(classname, classsubject, classteacher) VALUES ('$nameClass', '$subjectClass', '$teacherClass')");
-    }
-
-    session_start();
-    $teacher=$_SESSION['theteacher'];
-    $sql = "SELECT * FROM classdata WHERE classteacher='$teacher'";
-    $result = mysqli_query($con, $sql);
-    $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
-
-
-    mysqli_free_result($result);
-    mysqli_close($con);
+       include('./config/configuration.php');
+      session_start();
+      $teacher=$_SESSION['theteacher'];
+      $sql = "SELECT * FROM classdata WHERE classteacher='$teacher'";
+      $result = mysqli_query($con, $sql);
+      $data=mysqli_fetch_all($result, MYSQLI_ASSOC);
+  
+      mysqli_free_result($result);
+      mysqli_close($con);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,7 +27,7 @@
     <div id="box">
     <i class="fa fa-close" onclick="pop()" style="font-size: 40px" aria-hidden="true"></i>
     <h1 class="modal-title">{Create a new class}</h1>
-    <form action="" method="get">
+    <form action="./actions/createclass.php" method="get">
     <h2 class="labels">Name of the class</h2>
     <input type="text" name="classname" id="classname" class="input-txt" placeholder="name of the class">
     <h2 class="labels">Subject of the class</h2>
@@ -44,7 +35,7 @@
     <h2 class="labels">Teacher of the class</h2>
     <input type="email" name="classteacher" id="classteacher" class="input-txt" placeholder="your name">
     <h2 class="labels">
-    <input type="submit" class="input-submit" value="Create Class">
+    <input type="submit" name="submit" class="input-submit" value="Create Class">
     </form>
     </div>
 
@@ -55,6 +46,7 @@
     <div class="all-subjects">
     <?php
         foreach($data as $subject){ ?>
+    <a class="class-details" href="classdetails.php?classid=<?php echo $subject['classid'];?>">
     <div class='class-info'>
     <h1><?php echo $subject['classname']; ?></h1>
     <h3><?php echo $subject['classsubject']; ?></h3>
@@ -62,6 +54,7 @@
     </div>
     <?php } ?>
     </div>
+    </a>
     </div>
 
 
